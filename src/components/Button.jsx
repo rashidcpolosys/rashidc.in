@@ -18,7 +18,11 @@ const ButtonLink = ({ href, variant, label, icon, classes = '', external = false
 
   if (href.startsWith('/')) {
     return (
-      <Link href={href} className={className}>
+      <Link
+        href={href}
+        className={className}
+        prefetch={href.startsWith('/#') ? false : undefined}
+      >
         <ButtonContent label={label} icon={icon} />
       </Link>
     )

@@ -67,6 +67,7 @@ const Footer = () => {
                   <li key={label}>
                     <Link
                       href={href}
+                      prefetch={false}
                       className='block text-sm text-zinc-400 py-1 transition-colors hover:text-zinc-200 reveal-up'
                     >
                       {label}
@@ -97,7 +98,7 @@ const Footer = () => {
         </div>
 
         <div className='flex items-center justify-between pt-10 mb-8'>
-          <Link href='/' className='logo reveal-up' aria-label='Rashid C home'>
+          <Link href='/' prefetch={false} className='logo reveal-up' aria-label='Rashid C home'>
             <Image src={logo} width={40} height={40} alt='' />
           </Link>
 

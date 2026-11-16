@@ -1,6 +1,7 @@
 import About from '@/components/About'
 import Contact from '@/components/Contact'
 import Experience from '@/components/Experience'
+import Faq from '@/components/Faq'
 import Hero from '@/components/Hero'
 import JsonLd from '@/components/JsonLd'
 import Review from '@/components/Review'
@@ -24,6 +25,7 @@ export default function HomePage() {
       <Work />
       <Experience />
       <Review />
+      <Faq />
       <Contact />
     </main>
   )

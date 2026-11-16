@@ -1,0 +1,24 @@
+# Rashid C
+
+> Full Stack Engineer in Dubai, UAE, available immediately. Around 4 years building business software: multi-tenant ERP and SaaS, UAE VAT invoicing, practice management and e-commerce, with Next.js, React, TypeScript, Django REST Framework, NestJS, Node.js and PostgreSQL.
+
+- Current role: Full Stack Engineer, AZC Electronics Trading LLC, Dubai (Jan 2026 - present)
+- Education: BSc Computer Science, University of Calicut (2018 - 2022)
+- Languages: English, Malayalam, Hindi (basic)
+- Contact: +971 55 680 1022 (UAE, phone and WhatsApp), anurashid105@gmail.com
+
+## Projects
+
+- [NezeX One](https://www.rashidc.in/projects/nezex-one): multi-tenant cloud ERP live in the UAE; sole engineer; UAE VAT tax invoices, credit notes, 29 permissions, 527 automated tests. Django REST Framework, PostgreSQL, Next.js, Docker, AWS.
+- [Al Fath](https://www.rashidc.in/projects/al-fath): bilingual (English/Arabic) practice management system for an Abu Dhabi accounting and tax firm. NestJS, PostgreSQL, Prisma, Next.js, 250+ Vitest tests.
+- [AZC E-commerce](https://www.rashidc.in/projects/azc-ecommerce): production online store for GCC customers with Stripe and PayPal, Next.js SEO and an OpenAI-powered feature.
+- [Polosys Books](https://www.rashidc.in/projects/polosys-books): back-end contract work on a multi-tenant SaaS ERP for the GCC (Django REST Framework, AWS Lambda and RDS).
+- NIBX (thenibx.com): website for a US bulk electronics supplier in Miami, Florida.
+- KeralaBooks: multi-tenant bakery sales and purchase ledger (in progress).
+
+## Links
+
+- [Portfolio](https://www.rashidc.in/)
+- [CV (PDF)](https://www.rashidc.in/cv)
+- [LinkedIn](https://www.linkedin.com/in/rashid-c/)
+- [GitHub](https://github.com/Rashid-C)

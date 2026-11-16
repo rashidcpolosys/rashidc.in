@@ -22,7 +22,7 @@ const NAV_ITEMS = [
 ]
 
 /** Sections with no nav link of their own highlight the link before them. */
-const HIGHLIGHT_FOR = { skills: 'services' }
+const HIGHLIGHT_FOR = { skills: 'services', faq: 'reviews' }
 
 const Navbar = ({ navOpen, onNavigate }) => {
   const pathname = usePathname()
@@ -115,6 +115,7 @@ const Navbar = ({ navOpen, onNavigate }) => {
         <Link
           key={id}
           href={`/#${id}`}
+          prefetch={false}
           ref={(element) => {
             links.current[id] = element
           }}
