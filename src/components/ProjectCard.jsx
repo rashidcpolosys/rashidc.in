@@ -17,7 +17,7 @@ const MAX_VISIBLE_TAGS = 3
 
 /** Cards with a case study open it on this site; the rest open the live project. */
 const ProjectCard = ({ project, index = 0 }) => {
-  const { slug, imgSrc, title, tags, projectLink, caseStudy } = project
+  const { slug, imgSrc, title, tags, projectLink, caseStudy, inProgress } = project
   const style = gradients[index % gradients.length]
   const visibleTags = tags.slice(0, MAX_VISIBLE_TAGS)
   const hiddenCount = tags.length - MAX_VISIBLE_TAGS
@@ -66,12 +66,14 @@ const ProjectCard = ({ project, index = 0 }) => {
           </div>
         </div>
 
-        <div className='hidden sm:grid w-11 h-11 rounded-lg place-items-center bg-sky-400 text-zinc-950 shrink-0 self-start'>
-          <Arrow aria-hidden='true' />
-        </div>
+        {!inProgress && (
+          <div className='hidden sm:grid w-11 h-11 rounded-lg place-items-center bg-sky-400 text-zinc-950 shrink-0 self-start'>
+            <Arrow aria-hidden='true' />
+          </div>
+        )}
       </div>
 
-      {caseStudy ? (
+      {inProgress ? null : caseStudy ? (
         <Link
           href={`/projects/${slug}`}
           aria-label={`Read about ${caseStudy.name}`}

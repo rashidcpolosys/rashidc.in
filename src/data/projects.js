@@ -3,6 +3,7 @@ import ecommerce from '@/images/ecommerce.png'
 import english from '@/images/english.png'
 import gocart from '@/images/gocart.png'
 import kerala from '@/images/kerala.png'
+import keralabooks from '@/images/keralabooks.png'
 import mehara from '@/images/mehara.png'
 import mptms from '@/images/mptms.png'
 import nezex from '@/images/nezex.png'
@@ -86,6 +87,13 @@ export const projects = [
     },
   },
   {
+    slug: 'keralabooks',
+    imgSrc: keralabooks,
+    title: 'KeralaBooks - Bakery Ledger (In progress)',
+    tags: ['Next.js', 'Supabase', 'PostgreSQL', 'Multi-Tenant'],
+    inProgress: true,
+  },
+  {
     slug: 'azc-ecommerce',
     imgSrc: ecommerce,
     title: 'AZC E-commerce (UAE)',
@@ -98,7 +106,7 @@ export const projects = [
       seoDescription:
         'A production e-commerce store for GCC customers, built with Next.js, Node.js and MongoDB, with Stripe and PayPal checkout and an OpenAI feature.',
       summary:
-        'I own the production e-commerce website for AZC Electronics Trading LLC, from checkout and order handling to search visibility and an OpenAI-powered customer engagement feature.',
+        'I am responsible for the production e-commerce website for AZC Electronics Trading LLC, from checkout and order handling to search visibility and an OpenAI-powered customer engagement feature.',
       role: 'Full Stack Engineer',
       company: 'AZC Electronics Trading LLC',
       period: 'Jan 2026 - Present',
@@ -108,9 +116,9 @@ export const projects = [
         'Built and maintain the platform in Next.js, TypeScript, Node.js and MongoDB, keeping it live for GCC customers.',
         'Integrated two payment gateways, Stripe and PayPal, and built end-to-end order and admin workflows.',
         'Implemented Next.js SEO and multilingual support to improve reach across Gulf markets.',
-        'Integrated an OpenAI-powered customer engagement feature and set up Google Analytics.',
+        'Integrated an OpenAI-powered customer engagement feature, Google Analytics and Sentry error monitoring.',
       ],
-      stack: ['Next.js', 'React', 'TypeScript', 'Node.js', 'MongoDB', 'Stripe', 'PayPal', 'shadcn/ui', 'OpenAI API', 'Google Analytics'],
+      stack: ['Next.js', 'React', 'TypeScript', 'Node.js', 'MongoDB', 'Stripe', 'PayPal', 'shadcn/ui', 'OpenAI API', 'Google Analytics', 'Sentry'],
     },
   },
   {
@@ -121,29 +129,22 @@ export const projects = [
     projectLink: 'https://web.polosysbooks.com/login/',
     caseStudy: {
       name: 'Polosys Books',
-      headline: 'Making a multi-tenant SaaS ERP dramatically faster',
-      seoTitle: 'Polosys Books: SaaS ERP Speed Case Study',
+      headline: 'Back-end work on a multi-tenant SaaS ERP',
+      seoTitle: 'Polosys Books: SaaS ERP Back-End Case Study',
       seoDescription:
-        'How Rashid C cut a multi-tenant ERP transaction from 110 seconds to 0.8 seconds with bulk database operations and a custom FIFO engine.',
+        'Back-end contract work on Polosys Books, a multi-tenant SaaS ERP for the GCC: faster transaction processing and root-cause bug fixing.',
       summary:
-        'Polosys Books is a multi-tenant SaaS ERP serving the GCC and Saudi Arabia market. I joined on contract and rebuilt the slow transaction paths that were holding up daily accounting work.',
+        'Polosys Books is a multi-tenant SaaS ERP serving the GCC and Saudi Arabia market. I joined on contract to improve slow transaction paths and fix bugs in core modules.',
       role: 'Back End Developer (Contract)',
-      company: 'Polosys Technologies LLP',
+      company: 'Polosys Technology LLP',
       period: 'Jun 2026 - Aug 2026',
       linkLabel: 'Open Polosys Books',
-      stats: [
-        { label: 'VendorCredit transaction', value: '110 s → 0.8 s' },
-        { label: 'PurchaseInvoice processing', value: '60 s → 1-2 s' },
-        { label: 'Interconnected bugs fixed', value: '14' },
-        { label: 'Files audited', value: '579' },
-      ],
+      stats: [],
       highlights: [
-        'Cut VendorCredit transaction processing by about 99% on AWS Lambda and RDS by rebuilding the service layer with bulk database operations and a custom incremental FIFO engine.',
-        'Reduced PurchaseInvoice processing from up to 60 seconds to 1-2 seconds using the same architecture.',
-        'Fixed 14 interconnected bugs across 5 files in the Delivery Challan module through systematic root-cause analysis.',
+        'Improved the performance of a core transaction service layer by moving to bulk database operations, on AWS Lambda and RDS.',
+        'Diagnosed and fixed interconnected bugs through root-cause analysis and documented the findings of a codebase audit.',
         'Added multi-unit quantity conversion, so items sell in one unit while inventory tracks in another.',
-        'Audited 579 files across 27 Django apps and documented 21 architectural issues for the technical lead.',
-        'Wrote the platform\'s technical documentation site in Docusaurus, covering 13 business modules and the API reference.',
+        'Wrote the platform\'s technical documentation site in Docusaurus.',
       ],
       stack: ['Django REST Framework', 'PostgreSQL', 'AWS Lambda', 'AWS RDS', 'Docusaurus'],
     },

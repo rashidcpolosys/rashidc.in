@@ -12,7 +12,7 @@ const trackRecord = [
   { label: 'Projects delivered', value: '45+' },
   { label: 'Tests on NezeX One', value: '527' },
   { label: 'Live database migrations', value: '127' },
-  { label: 'Transaction time', value: '110 s → 0.8 s' },
+  { label: 'Permissions on NezeX One', value: '29' },
 ]
 
 const About = () => {
