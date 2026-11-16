@@ -18,12 +18,13 @@ const experiences = [
       'Wrote 527 automated backend tests in a GitHub Actions CI pipeline, ran 127 schema and data migrations on the live PostgreSQL database, and built a deployment script that backs up the database, uploads Docker images and restarts services on AWS EC2 and S3.',
       'Built Al Fath for an Abu Dhabi accounting and tax firm - a bilingual (English/Arabic) public website plus a staff practice-management system: NestJS REST API on PostgreSQL/Prisma with per-module permissions, optimistic locking, a transactional field-level audit log, login rate limiting, least-privilege database roles and 250+ Vitest tests.',
       'Responsible for the company\'s production e-commerce website (azcstore.info) - Next.js, Node.js and MongoDB with Stripe and PayPal payments, Next.js SEO, Google Analytics, Sentry error monitoring and an OpenAI-powered customer engagement feature.',
+      'Designed and built thenibx.com with React and Vite for NIBX L.L.C., AZC\'s US partner and a bulk electronics supplier in Miami, Florida.',
       'Building KeralaBooks, a multi-tenant sales and purchase ledger on a Supabase PostgreSQL backend for a Kerala bakery business with two separately run shops, designed for tablet and mobile use.',
     ],
   },
   {
     role: 'Back End Developer (Contract)',
-    company: 'Polosys Technology LLP',
+    company: 'Polosys Technologies LLP',
     duration: 'Jun 2026 - Aug 2026',
     location: 'KINFRA, Malappuram, India · Remote',
     highlights: [
@@ -77,10 +78,11 @@ const education = {
 }
 
 const certifications = [
-  'One Million Prompters - AI Prompt Engineering (Dubai Future Foundation)',
-  'AI & Data Science (DDU-GKY)',
-  'MongoDB Basics (MongoDB University)',
-  'EF SET English - B2',
+  'One Million Prompters - Prompt Engineering (Dubai Future Foundation, Nov 2026)',
+  'Write Your First C# Code (Microsoft, Aug 2026)',
+  'EF SET English Certificate - 54/100, B2 Upper Intermediate (Apr 2026)',
+  'AI & Data Science (DDU-GKY, 2022)',
+  'NSS volunteer - 240 hours of community service and State Leadership Camp (2018 - 2020)',
 ]
 
 const languages = 'English, Malayalam, Hindi (basic)'

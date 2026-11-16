@@ -141,7 +141,7 @@ export const projects = [
       summary:
         'Polosys Books is a multi-tenant SaaS ERP serving the GCC and Saudi Arabia market. I joined on contract to improve slow transaction paths and fix bugs in core modules.',
       role: 'Back End Developer (Contract)',
-      company: 'Polosys Technology LLP',
+      company: 'Polosys Technologies LLP',
       period: 'Jun 2026 - Aug 2026',
       linkLabel: 'Open Polosys Books',
       stats: [],
