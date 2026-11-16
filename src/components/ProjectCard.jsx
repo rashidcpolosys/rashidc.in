@@ -17,7 +17,7 @@ const MAX_VISIBLE_TAGS = 3
 
 /** Cards with a case study open it on this site; the rest open the live project. */
 const ProjectCard = ({ project, index = 0 }) => {
-  const { slug, imgSrc, title, tags, projectLink, caseStudy, inProgress } = project
+  const { slug, imgSrc, title, tags, projectLink, caseStudy, inProgress, region } = project
   const style = gradients[index % gradients.length]
   const visibleTags = tags.slice(0, MAX_VISIBLE_TAGS)
   const hiddenCount = tags.length - MAX_VISIBLE_TAGS
@@ -28,7 +28,12 @@ const ProjectCard = ({ project, index = 0 }) => {
       style={{ '--card-grad-from': style.from, '--card-grad-to': style.to }}
       className='glass-card group relative h-full p-4 rounded-2xl bg-white/[0.03] hover:bg-white/[0.05] ring-1 ring-inset ring-white/10 transition-[background-color,transform] hover:-translate-y-0.5'
     >
-      <figure className='img-box aspect-video rounded-lg mb-4'>
+      <figure className='img-box relative aspect-video rounded-lg mb-4'>
+        {region && (
+          <span className='absolute top-2 left-2 z-10 h-6 leading-6 px-2 rounded-md text-xs font-medium bg-zinc-900/85 text-zinc-100 ring-1 ring-inset ring-white/10'>
+            {region}
+          </span>
+        )}
         <Image
           src={imgSrc}
           alt={`${title} screenshot`}
