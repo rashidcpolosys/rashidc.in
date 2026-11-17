@@ -220,39 +220,15 @@ button:focus-visible {
   @apply text-zinc-500 dark:text-zinc-400;
 }
 
-/* VIEW TRANSITIONS */
-
-/* The header stays still while page content changes. */
-::view-transition-group(site-header) {
-  animation: none;
-  z-index: 100;
+/* PROJECT POP-UP: light CSS animations (no full-page snapshots) */
+@keyframes modal-fade {
+  from { opacity: 0; }
 }
-::view-transition-old(site-header) {
-  display: none;
-}
-::view-transition-new(site-header) {
-  animation: none;
-}
-
-/* Project pop-up: rises in, sinks out. */
-::view-transition-new(.modal-in):only-child {
-  animation: modal-in 260ms cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-::view-transition-old(.modal-out):only-child {
-  animation: modal-out 180ms ease-in forwards;
-}
-
 @keyframes modal-in {
   from { opacity: 0; transform: translateY(24px) scale(0.98); }
 }
-@keyframes modal-out {
-  to { opacity: 0; transform: translateY(16px) scale(0.98); }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  ::view-transition-group(*),
-  ::view-transition-old(*),
-  ::view-transition-new(*) {
-    animation: none !important;
-  }
+/* Keep the page from shifting sideways when the pop-up hides the scrollbar. */
+html {
+  scrollbar-gutter: stable;
 }

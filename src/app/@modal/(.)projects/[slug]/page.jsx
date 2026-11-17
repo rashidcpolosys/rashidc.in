@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation'
 
 import CaseStudy from '@/components/CaseStudy'
-import ProjectModal from '@/components/ProjectModal'
 import { caseStudies, getCaseStudy } from '@/data/projects'
 
 /**
@@ -19,9 +18,5 @@ export default async function ProjectModalPage({ params }) {
   const project = getCaseStudy(slug)
   if (!project) notFound()
 
-  return (
-    <ProjectModal labelledBy={`case-study-${slug}`}>
-      <CaseStudy project={project} inModal />
-    </ProjectModal>
-  )
+  return <CaseStudy project={project} inModal />
 }

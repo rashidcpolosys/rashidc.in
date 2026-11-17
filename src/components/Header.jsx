@@ -38,7 +38,6 @@ const Header = () => {
       className='fixed top-0 left-0 w-full h-16 sm:h-20 z-40 flex items-center'
       style={{
         background: 'linear-gradient(to bottom, var(--header-from), transparent)',
-        viewTransitionName: 'site-header',
       }}
     >
       {/*
