@@ -17,7 +17,7 @@ const reviews = [
   {
     content:
       'Rashid built and runs our NezeX ERP, our e-commerce store and the NIBX website for our US partner. He handles development, deployment and support on his own, and he delivers what we ask for.',
-    name: 'Nibal Muidu',
+    name: 'Nibal Moidu',
     imgSrc: azcOwner,
     company: 'AZC Electronics Trading LLC & NIBX L.L.C.',
   },
