@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import { usePathname } from 'next/navigation'
+import { usePathname, useSelectedLayoutSegments } from 'next/navigation'
 import { ReactLenis, useLenis } from 'lenis/react'
 import { gsap, ScrollTrigger, useGSAP } from '@/lib/gsap'
 import { scrollToSection, SECTION_NAV_EVENT } from '@/lib/scroll'
@@ -71,7 +71,7 @@ const SectionLinks = () => {
 
 /** Fades `.reveal-up` elements in as they scroll into view, on every page. */
 const RevealOnScroll = () => {
-  const pathname = usePathname()
+  const page = useSelectedLayoutSegments().join('/')
 
   useGSAP(
     () => {
@@ -89,7 +89,7 @@ const RevealOnScroll = () => {
           }),
       })
     },
-    { dependencies: [pathname], revertOnUpdate: true }
+    { dependencies: [page], revertOnUpdate: true }
   )
 
   return null

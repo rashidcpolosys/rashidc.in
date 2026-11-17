@@ -13,6 +13,8 @@ const CV_PATH = '/Rashid_C_Full_Stack_Engineer_UAE.pdf'
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // Automatic memoisation: fewer re-renders without hand-written useMemo/useCallback.
+  reactCompiler: true,
   poweredByHeader: false,
   env: {
     NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY: contactFormKey,

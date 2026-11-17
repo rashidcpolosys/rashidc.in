@@ -3,6 +3,7 @@
  * @license Apache-2.0
  */
 
+import { ViewTransition } from 'react'
 import { Inter } from 'next/font/google'
 import 'lenis/dist/lenis.css'
 import './globals.css'
@@ -73,7 +74,7 @@ export const viewport = {
   ],
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, modal }) {
   return (
     <html
       lang='en'
@@ -100,7 +101,9 @@ export default function RootLayout({ children }) {
         <JsonLd data={siteJsonLd} />
         <SmoothScroll>
           <Header />
-          {children}
+          {/* Page changes crossfade; the header stays put (see globals.css). */}
+          <ViewTransition>{children}</ViewTransition>
+          {modal}
           <Footer />
           <FloatingWhatsApp />
           <BackToTop />

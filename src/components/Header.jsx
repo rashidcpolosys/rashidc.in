@@ -36,13 +36,19 @@ const Header = () => {
   return (
     <header
       className='fixed top-0 left-0 w-full h-16 sm:h-20 z-40 flex items-center'
-      style={{ background: 'linear-gradient(to bottom, var(--header-from), transparent)' }}
+      style={{
+        background: 'linear-gradient(to bottom, var(--header-from), transparent)',
+        viewTransitionName: 'site-header',
+      }}
     >
       {/*
         3-column layout on all sizes:
           [logo]  [nav — grows + centers on desktop, empty on mobile]  [toggle + contact + burger]
       */}
-      <div className='w-full max-w-screen-2xl mx-auto px-4 sm:px-6 grid grid-cols-[auto_1fr_auto] items-center gap-2'>
+      <div
+        ref={menuRef}
+        className='relative w-full max-w-screen-2xl mx-auto px-4 sm:px-6 grid grid-cols-[auto_1fr_auto] items-center gap-2'
+      >
 
         {/* col 1 — Logo */}
         <Link
@@ -55,15 +61,13 @@ const Header = () => {
           <Image src={logo} alt='RC' width={38} height={38} className='w-9 h-9 sm:w-10 sm:h-10 block' preload />
         </Link>
 
-        {/* col 2 — Nav (desktop: visible inline; mobile: nothing here) */}
-        <div className='hidden md:flex justify-center'>
-          <Navbar navOpen={false} onNavigate={() => {}} />
+        {/* col 2 — the one menu: inline and centred on desktop; on phones a dropdown under the menu button */}
+        <div className='max-md:absolute max-md:top-full max-md:right-4 sm:max-md:right-6 md:flex md:justify-center'>
+          <Navbar navOpen={navOpen} onNavigate={() => setNavOpen(false)} />
         </div>
-        {/* spacer on mobile so col 2 still exists */}
-        <div className='md:hidden' />
 
         {/* col 3 — Right actions + mobile nav anchor */}
-        <div ref={menuRef} className='flex items-center gap-2 justify-end relative'>
+        <div className='flex items-center gap-2 justify-end'>
           <ThemeToggle />
 
           <Link
@@ -85,10 +89,6 @@ const Header = () => {
             {navOpen ? <X size={20} aria-hidden='true' /> : <Menu size={20} aria-hidden='true' />}
           </button>
 
-          {/* Mobile dropdown — anchors to this div via absolute right-0 */}
-          <div className='md:hidden'>
-            <Navbar navOpen={navOpen} onNavigate={() => setNavOpen(false)} />
-          </div>
         </div>
 
       </div>

@@ -4,7 +4,6 @@
  */
 
 import Link from 'next/link'
-import { CV_FILENAME, CV_PATH } from '@/data/site'
 
 const ButtonContent = ({ label, icon: Icon }) => (
   <>
@@ -42,9 +41,3 @@ const ButtonLink = ({ href, variant, label, icon, classes = '', external = false
 export const ButtonPrimary = (props) => <ButtonLink variant='primary' {...props} />
 
 export const ButtonOutline = (props) => <ButtonLink variant='outline' {...props} />
-
-export const DownloadCvButton = ({ label = 'Download CV', icon }) => (
-  <a href={CV_PATH} download={CV_FILENAME} className='btn btn-primary'>
-    <ButtonContent label={label} icon={icon} />
-  </a>
-)
