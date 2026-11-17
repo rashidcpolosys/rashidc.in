@@ -8,11 +8,11 @@ const FloatingWhatsApp = () => {
       rel='noopener noreferrer'
       aria-label={`Chat on WhatsApp (${contact.phoneUae.display})`}
       title={`WhatsApp ${contact.phoneUae.display}`}
-      className='fixed bottom-20 right-4 md:bottom-6 md:right-6 z-50 w-12 h-12 md:w-16 md:h-16 grid place-items-center rounded-2xl text-green-800 bg-green-500 ring-2 ring-white/20 shadow-[0_12px_28px_rgba(34,197,94,0.45)] hover:scale-110 active:scale-95 transition-transform animate-pulse'
+      className='fixed bottom-20 right-4 md:bottom-6 md:right-6 z-50 w-11 h-11 md:w-12 md:h-12 grid place-items-center rounded-xl text-green-800 bg-green-500 ring-2 ring-white/20 shadow-[0_8px_20px_rgba(34,197,94,0.4)] hover:scale-110 active:scale-95 transition-transform animate-pulse'
     >
       <svg
-        width='28'
-        height='28'
+        width='22'
+        height='22'
         viewBox='0 0 25 24'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'

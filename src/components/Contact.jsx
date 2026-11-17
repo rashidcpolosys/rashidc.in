@@ -143,6 +143,9 @@ const Contact = () => {
     <section id='contact' className='section'>
       <div className='container lg:grid lg:grid-cols-2 lg:gap-10 lg:items-start'>
         <div className='mb-10 lg:mb-0'>
+          <p className='text-sm font-medium uppercase tracking-widest text-sky-500 dark:text-sky-400 mb-2 reveal-up'>
+            Contact
+          </p>
           <h2 className='headline-2 reveal-up'>
             Let&apos;s talk
           </h2>
@@ -158,7 +161,7 @@ const Contact = () => {
               const body = (
                 <>
                   <span
-                    className='w-10 h-10 shrink-0 rounded-lg grid place-items-center bg-zinc-200 dark:bg-zinc-800 text-sky-400 ring-1 ring-inset ring-zinc-900/5 dark:ring-zinc-50/5'
+                    className='w-10 h-10 shrink-0 rounded-lg grid place-items-center bg-zinc-200 dark:bg-zinc-800 text-sky-600 dark:text-sky-400 ring-1 ring-inset ring-zinc-900/5 dark:ring-zinc-50/5'
                     aria-hidden='true'
                   >
                     <Icon size={20} />

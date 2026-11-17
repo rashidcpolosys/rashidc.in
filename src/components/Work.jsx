@@ -29,6 +29,9 @@ const Work = () => {
   return (
     <section id='work' className='section'>
       <div className='container'>
+        <p className='text-sm font-medium uppercase tracking-widest text-sky-500 dark:text-sky-400 mb-2 reveal-up'>
+          Selected work
+        </p>
         <h2 className='headline-2 mb-3 reveal-up'>Major projects</h2>
 
         <p className='text-zinc-500 dark:text-zinc-400 mb-6 max-w-[60ch] reveal-up'>

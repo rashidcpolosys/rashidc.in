@@ -125,7 +125,7 @@ const Navbar = ({ navOpen, onNavigate }) => {
             activeId === id ? 'active' : ''
           }`}
         >
-          {label}
+          <span className='nav-label'>{label}</span>
         </Link>
       ))}
       <div className='active-box' ref={activeBox}></div>

@@ -20,6 +20,9 @@ const About = () => {
     <section id='about' className='section'>
       <div className='container'>
         <div className='bg-zinc-200/80 dark:bg-zinc-800/50 p-5 sm:p-7 rounded-2xl md:p-12 reveal-up'>
+          <p className='text-sm font-medium uppercase tracking-widest text-sky-600 dark:text-sky-400 mb-2'>
+            About
+          </p>
           <h2 className='headline-2 max-w-[20ch] mb-6 md:mb-10'>
             I build the software a business runs on every day.
           </h2>
@@ -62,7 +65,7 @@ const About = () => {
 
                 <Link
                   href='/projects/nezex-one'
-                  className='text-sm text-sky-400 transition-colors hover:text-sky-300'
+                  className='text-sm text-sky-600 dark:text-sky-400 transition-colors hover:text-sky-500 dark:hover:text-sky-300'
                 >
                   How I built it
                 </Link>

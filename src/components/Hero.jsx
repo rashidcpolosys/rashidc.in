@@ -7,6 +7,7 @@ import Image from 'next/image'
 import { ArrowDown } from 'lucide-react'
 import { ButtonOutline } from './Button'
 import { DownloadCvButton } from './DownloadCvButton'
+import { RotatingHeadline } from './RotatingHeadline'
 import profile from '@/images/profile.png'
 
 const Hero = () => {
@@ -27,13 +28,16 @@ const Hero = () => {
             </div>
           </div>
 
-          <p className='headline-1 max-w-[15ch] sm:max-w-[20ch] md:max-w-[15ch] mt-5 mb-4'>
-            Engineering Scalable Full-Stack Systems
+          <p className='mt-5 text-sm font-medium uppercase tracking-widest text-sky-500 dark:text-sky-400'>
+            Full Stack Developer
           </p>
 
-          <h1 className='text-zinc-500 dark:text-zinc-400 font-normal text-base sm:text-lg max-w-[42ch] mb-8 lg:mb-10'>
-            Rashid C &mdash; Full Stack Engineer in Dubai, building ERP, SaaS
-            and e-commerce systems with Next.js, Node.js, Django and PostgreSQL.
+          <RotatingHeadline />
+
+          <h1 className='text-zinc-500 dark:text-zinc-400 font-normal text-base sm:text-lg max-w-[44ch] mb-8 lg:mb-10'>
+            I&rsquo;m Rashid C, building business software in Dubai for 4
+            years, including NezeX, an ERP running in production for a UAE
+            business.
           </h1>
         </div>
 

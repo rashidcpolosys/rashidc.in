@@ -41,18 +41,29 @@ const Review = () => {
   return (
     <section id='reviews' className='section'>
       <div className='container'>
-        <h2 className='headline-2 mb-8 reveal-up'>What clients say</h2>
-        <div className='grid gap-3 md:grid-cols-2 lg:grid-cols-3'>
+        <p className='text-sm font-medium uppercase tracking-widest text-sky-500 dark:text-sky-400 mb-2 reveal-up'>
+          Testimonials
+        </p>
+        <h2 className='headline-2 mb-6 sm:mb-8 reveal-up'>What clients say</h2>
+
+        {/* Phones: a swipeable row where the next card peeks in.
+            Tablet and up: a normal grid. */}
+        <div className='flex gap-3 overflow-x-auto snap-x snap-mandatory -mx-4 px-4 sm:-mx-5 sm:px-5 pb-2 scroll-px-4 sm:scroll-px-5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible md:mx-0 md:px-0 md:pb-0 reveal-up'>
           {reviews.map(({ content, name, imgSrc, company }) => (
-            <ReviewCard
-              key={name}
-              content={content}
-              name={name}
-              imgSrc={imgSrc}
-              company={company}
-            />
+            <div key={name} className='snap-start shrink-0 w-[85%] xs:w-[80%] md:w-auto'>
+              <ReviewCard
+                content={content}
+                name={name}
+                imgSrc={imgSrc}
+                company={company}
+              />
+            </div>
           ))}
         </div>
+
+        <p className='md:hidden mt-2 text-xs text-zinc-400 dark:text-zinc-500'>
+          Swipe to see more &rarr;
+        </p>
       </div>
     </section>
   )

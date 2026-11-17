@@ -8,7 +8,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Menu, X } from 'lucide-react'
+import { ArrowRight, Menu, X } from 'lucide-react'
 import Navbar from './Navbar'
 import ThemeToggle from './ThemeToggle'
 import logo from '@/images/logo-rc.svg'
@@ -72,9 +72,13 @@ const Header = () => {
           <Link
             href='/#contact'
             prefetch={false}
-            className='btn btn-secondary whitespace-nowrap max-md:!hidden'
+            className='group btn btn-secondary whitespace-nowrap max-md:!hidden'
           >
             Contact Me
+            <ArrowRight
+              aria-hidden='true'
+              className='transition-transform duration-300 group-hover:translate-x-0.5 motion-reduce:!transform-none'
+            />
           </Link>
 
           {/* Hamburger — mobile only */}

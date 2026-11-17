@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react'
 import Paginated from './Paginated'
+import { SpotlightGroup } from './SpotlightGroup'
 
 /** Region filters. "UAE & GCC" also covers GCC-wide products. */
 const REGION_FILTERS = [
@@ -114,18 +115,20 @@ const ProjectBrowser = ({ cards }) => {
 
       {/* A new key restarts at page 1 whenever the filter changes. */}
       {visible.length > 0 && (
-        <Paginated
-          key={`${regionFilter}-${techFilter}`}
-          perPage={4}
-          label='Projects'
-          gridClassName='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4'
-        >
-          {visible.map(({ key, card }) => (
-            <div key={key} className='contents'>
-              {card}
-            </div>
-          ))}
-        </Paginated>
+        <SpotlightGroup>
+          <Paginated
+            key={`${regionFilter}-${techFilter}`}
+            perPage={4}
+            label='Projects'
+            gridClassName='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4'
+          >
+            {visible.map(({ key, card }) => (
+              <div key={key} className='contents'>
+                {card}
+              </div>
+            ))}
+          </Paginated>
+        </SpotlightGroup>
       )}
     </>
   )

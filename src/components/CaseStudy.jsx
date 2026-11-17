@@ -124,7 +124,7 @@ const CaseStudy = ({ project, inModal = false }) => {
           <span className='title-1'>{next.caseStudy.name}</span>
         </span>
         <ArrowRight
-          className='text-sky-400 shrink-0 transition-transform group-hover:translate-x-1'
+          className='text-sky-600 dark:text-sky-400 shrink-0 transition-transform group-hover:translate-x-1'
           aria-hidden='true'
         />
       </Link>

@@ -91,6 +91,9 @@ const Experience = () => {
   return (
     <section id='experience' className='section'>
       <div className='container'>
+        <p className='text-sm font-medium uppercase tracking-widest text-sky-500 dark:text-sky-400 mb-2 reveal-up'>
+          Career
+        </p>
         <h2 className='headline-2 mb-3 reveal-up'>Work experience</h2>
 
         <p className='text-zinc-500 dark:text-zinc-400 mb-8 max-w-[60ch] reveal-up'>
@@ -101,24 +104,26 @@ const Experience = () => {
         <div className='relative'>
           <div className='absolute left-[7px] top-2 bottom-2 w-px bg-zinc-300 dark:bg-zinc-700'></div>
 
-          <div className='space-y-10'>
+          <div className='space-y-8 sm:space-y-10'>
             {experiences.map(({ role, company, duration, location, highlights }) => (
               <article
                 key={`${company}-${role}`}
-                className='reveal-up relative pl-8 md:pl-10'
+                className='group reveal-up relative pl-8 md:pl-10'
               >
-                <span className='absolute left-0 top-1.5 w-3.5 h-3.5 rounded-full bg-sky-400 ring-4 ring-zinc-100 dark:ring-zinc-900'></span>
+                <span className='absolute left-0 top-1.5 w-3.5 h-3.5 rounded-full bg-sky-400 ring-4 ring-zinc-100 dark:ring-zinc-900 transition-transform duration-300 group-hover:scale-125 motion-reduce:!transform-none'></span>
 
-                <div className='flex flex-col sm:flex-row sm:flex-wrap sm:items-start sm:justify-between gap-2 sm:gap-3'>
+                <div className='flex flex-col sm:flex-row sm:flex-wrap sm:items-start sm:justify-between gap-1.5 sm:gap-3'>
                   <div>
-                    <h3 className='title-1 text-lg sm:text-[22px]'>{role}</h3>
+                    <h3 className='title-1 text-lg sm:text-[22px] transition-colors duration-300 group-hover:text-sky-500 dark:group-hover:text-sky-400'>
+                      {role}
+                    </h3>
                     <p className='text-zinc-600 dark:text-zinc-300 mt-1 text-sm sm:text-base'>
                       {company}{' '}
                       <span className='text-zinc-400 dark:text-zinc-500'>- {location}</span>
                     </p>
                   </div>
 
-                  <p className='w-fit h-8 text-sm text-zinc-700 dark:text-zinc-200 bg-zinc-900/10 dark:bg-zinc-50/10 grid items-center px-3 rounded-lg shrink-0'>
+                  <p className='w-fit h-7 sm:h-8 text-xs sm:text-sm text-zinc-700 dark:text-zinc-200 bg-zinc-900/10 dark:bg-zinc-50/10 grid items-center px-3 rounded-lg shrink-0'>
                     {duration}
                   </p>
                 </div>
@@ -129,7 +134,7 @@ const Experience = () => {
           </div>
         </div>
 
-        <div className='mt-12 bg-zinc-200/80 dark:bg-zinc-800/50 p-7 rounded-2xl md:p-10 reveal-up'>
+        <div className='mt-10 sm:mt-12 bg-zinc-200/80 dark:bg-zinc-800/50 p-5 sm:p-7 rounded-2xl md:p-10 reveal-up'>
           <h3 className='title-1 mb-5'>Education &amp; certifications</h3>
 
           <div className='grid gap-6 md:grid-cols-2'>

@@ -96,30 +96,6 @@ button:focus-visible {
   }
 }
 
-.glass-card {
-  position: relative;
-  isolation: isolate;
-}
-
-.glass-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(135deg, var(--card-grad-from), var(--card-grad-to));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-}
-
-.glass-card:hover::before {
-  opacity: 1;
-}
-
 /* COMPONENTS */
 /* ------------------------------------------------------------------------------ */
 
@@ -138,10 +114,12 @@ button:focus-visible {
   @apply absolute top-full right-0 min-w-40 p-2 rounded-2xl
     ring-inset ring-1 scale-90 isolate blur-sm opacity-0 invisible
     transition-[opacity,transform,filter]
-    md:static md:flex md:items-center md:mt-0 md:opacity-100 md:blur-0
+    md:relative md:flex md:items-center md:mt-0 md:opacity-100 md:blur-0
     md:visible md:scale-100
-    bg-white/95 ring-zinc-900/10
-    dark:bg-[#2f2f32]/95 dark:ring-zinc-50/5;
+    bg-white ring-zinc-900/[0.06]
+    shadow-[0_0_0_1px_rgba(255,255,255,1),0_1px_1px_rgba(0,0,0,0.03),0_2px_4px_rgba(0,0,0,0.03),0_8px_16px_-4px_rgba(0,0,0,0.06),0_20px_40px_-12px_rgba(0,0,0,0.10)]
+    dark:backdrop-blur-xl dark:bg-[#2f2f32]/80 dark:ring-zinc-50/5
+    dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_10px_30px_-12px_rgba(0,0,0,0.6)];
 }
 
 .navbar.active {
@@ -151,8 +129,8 @@ button:focus-visible {
 .nav-link {
   @apply grid items-center h-9 px-4 text-sm font-medium
     tracking-wide transition-colors
-    text-zinc-900/50 hover:text-zinc-900
-    dark:text-zinc-50/50 dark:hover:text-zinc-50;
+    text-zinc-900/55 hover:text-sky-600
+    dark:text-zinc-50/50 dark:hover:text-sky-400;
 }
 
 .nav-link.active {
@@ -179,7 +157,12 @@ button:focus-visible {
 }
 
 .btn-secondary {
-  @apply bg-zinc-900 text-zinc-50 dark:bg-zinc-50 dark:text-zinc-900 active:opacity-80;
+  @apply bg-zinc-900 text-zinc-50 dark:bg-zinc-50 dark:text-zinc-900
+    hover:bg-sky-400 hover:text-zinc-950 dark:hover:bg-sky-400 dark:hover:text-zinc-950
+    hover:-translate-y-px hover:shadow-[0_8px_20px_-8px_rgba(14,165,233,0.7)]
+    active:translate-y-0 active:scale-95
+    motion-reduce:hover:translate-y-0
+    transition-[background-color,color,transform,box-shadow] duration-300;
 }
 
 .btn svg {
@@ -203,12 +186,13 @@ button:focus-visible {
 /* Text field */
 
 .label {
-  @apply block text-sm font-normal mb-2
+  @apply block text-sm font-normal mb-1.5 sm:mb-2
     text-zinc-700 dark:text-zinc-200;
 }
 
 .text-field {
-  @apply block outline-none w-full px-3 py-3 text-sm rounded-xl ring-1 ring-inset
+  /* 16px on phones: iPhone Safari zooms the page into any smaller field */
+  @apply block outline-none w-full px-3 py-2.5 sm:py-3 text-base sm:text-sm rounded-xl ring-1 ring-inset
     ring-transparent transition-shadow
     hover:ring-zinc-900/10 dark:hover:ring-zinc-50/5
     focus:ring-sky-400 focus:ring-2
@@ -231,4 +215,241 @@ button:focus-visible {
 /* Keep the page from shifting sideways when the pop-up hides the scrollbar. */
 html {
   scrollbar-gutter: stable;
+}
+
+/* SKILL CARDS: a blue light runs around the border on hover */
+@property --border-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes border-spin {
+  to { --border-angle: 360deg; }
+}
+
+.skill-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--border-angle),
+    transparent 0deg 220deg,
+    var(--accent-from, #7dd3fc) 280deg,
+    var(--accent-to, #0ea5e9) 330deg,
+    transparent 360deg
+  );
+  /* Show only the 2px ring, not the inside */
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: border-spin 2.5s linear infinite paused;
+  pointer-events: none;
+}
+
+.skill-card:hover::before {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-card::before {
+    animation: none;
+    background: var(--accent-from, #38bdf8);
+  }
+}
+
+/* Typing caret */
+@keyframes caret-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.caret-blink {
+  animation: caret-blink 1s steps(1) infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .caret-blink { animation: none; }
+}
+
+/* Back-to-top arrow: a gentle upward bob, with a rest between bobs */
+@keyframes arrow-bob {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-3px); }
+}
+.arrow-bob {
+  animation: arrow-bob 2.4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .arrow-bob { animation: none; }
+}
+
+/* Nav links: the label grows a little on hover, with a soft spring. */
+.nav-label {
+  display: inline-block;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.nav-link:hover .nav-label {
+  transform: translateY(-1px) scale(1.08);
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-link:hover .nav-label {
+    transform: none;
+  }
+}
+
+/* Navbar border lights, following this path:
+
+     A ━━━━━━━━━━━━━━━━━▶ B      Lights leave A (top-left) and D (bottom-right)
+     ┃                    ▲      at the same moment:
+     ▼                    ┃        A → B along the top,    A → C down the left,
+     C ◀━━━━━━━━━━━━━━━━━ D        D → B up the right,     D → C along the bottom.
+                                 All four arrive at B and C together, fade, repeat.
+
+   Each layer carries four background images, one per light, in this order:
+   top, left, right, bottom. Each one's bright head faces where it is going. */
+@keyframes nav-beams {
+  0% {
+    background-position: -55% 0, 0 -150%, 100% 250%, 155% 100%;
+    opacity: 0;
+  }
+  12% { opacity: 1; }
+  82% { opacity: 1; }
+  100% {
+    background-position: 100% 0, 0 100%, 100% 0, 0 100%;
+    opacity: 0;
+  }
+}
+@keyframes nav-beams-again {
+  0% {
+    background-position: -55% 0, 0 -150%, 100% 250%, 155% 100%;
+    opacity: 0;
+  }
+  12% { opacity: 1; }
+  82% { opacity: 1; }
+  100% {
+    background-position: 100% 0, 0 100%, 100% 0, 0 100%;
+    opacity: 0;
+  }
+}
+
+/* Light colours: deep blue head on white, near-white "hot" head in dark */
+.navbar {
+  --beam-tail: rgba(56, 189, 248, 0.55);
+  --beam-mid: #38bdf8;
+  --beam-head: #0284c7;
+}
+.dark .navbar {
+  --beam-tail: rgba(56, 189, 248, 0.5);
+  --beam-mid: #7dd3fc;
+  --beam-head: #f0f9ff;
+}
+
+/* ::before is the crisp light on the edge, ::after the same lights blurred
+   into a soft glow behind it. Both share images, sizes and motion. */
+.navbar::before,
+.navbar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image:
+    linear-gradient(90deg, transparent, var(--beam-tail) 45%, var(--beam-mid) 85%, var(--beam-head)),   /* top:    A → B */
+    linear-gradient(180deg, transparent, var(--beam-tail) 45%, var(--beam-mid) 85%, var(--beam-head)),  /* left:   A → C */
+    linear-gradient(0deg, transparent, var(--beam-tail) 45%, var(--beam-mid) 85%, var(--beam-head)),    /* right:  D → B */
+    linear-gradient(270deg, transparent, var(--beam-tail) 45%, var(--beam-mid) 85%, var(--beam-head));  /* bottom: D → C */
+  background-size: 40% 3px, 3px 70%, 3px 70%, 40% 3px;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  opacity: 0;
+  /* Plays once as a welcome when the page loads... */
+  animation: nav-beams 2.8s cubic-bezier(0.65, 0, 0.35, 1) 0.8s 1 both;
+}
+
+.navbar::before {
+  padding: 1.5px;
+  /* Keep only the 1.5px edge, rounded corners included */
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+}
+
+.navbar::after {
+  z-index: -1; /* behind the links, above the bar's own background */
+  filter: blur(4px);
+  animation-name: nav-beams-glow;
+}
+
+/* ...then again only while the bar is hovered, or when the phone menu opens.
+   The -again copies have new names so the animation restarts. */
+.navbar:hover::before,
+.navbar.active::before {
+  animation: nav-beams-again 2.8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+.navbar:hover::after,
+.navbar.active::after {
+  animation: nav-beams-glow-again 2.8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+.navbar.active::before,
+.navbar.active::after {
+  animation-iteration-count: 1;
+}
+
+@keyframes nav-beams-glow {
+  0% {
+    background-position: -55% 0, 0 -150%, 100% 250%, 155% 100%;
+    opacity: 0;
+  }
+  12% { opacity: 0.45; }
+  82% { opacity: 0.45; }
+  100% {
+    background-position: 100% 0, 0 100%, 100% 0, 0 100%;
+    opacity: 0;
+  }
+}
+@keyframes nav-beams-glow-again {
+  0% {
+    background-position: -55% 0, 0 -150%, 100% 250%, 155% 100%;
+    opacity: 0;
+  }
+  12% { opacity: 0.45; }
+  82% { opacity: 0.45; }
+  100% {
+    background-position: 100% 0, 0 100%, 100% 0, 0 100%;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar::before,
+  .navbar::after,
+  .navbar:hover::before,
+  .navbar:hover::after,
+  .navbar.active::before,
+  .navbar.active::after {
+    animation: none;
+  }
+}
+
+/* FAQ: answers slide open instead of jumping (browsers that support it;
+   others simply open instantly). */
+.faq-item {
+  interpolate-size: allow-keywords;
+}
+.faq-item::details-content {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    content-visibility 0.35s allow-discrete;
+}
+.faq-item[open]::details-content {
+  height: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq-item::details-content {
+    transition: none;
+  }
 }

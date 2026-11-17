@@ -38,7 +38,7 @@ const skillItems = [
   { imgSrc: python, label: 'Python', desc: 'Programming Language' },
   { imgSrc: node, label: 'Node.js', desc: 'Backend Runtime' },
   { imgSrc: nestjs, label: 'NestJS', desc: 'Structured Node APIs' },
-  { imgSrc: django, label: 'Django REST Framework', desc: 'Python APIs' },
+  { imgSrc: django, label: 'Django / DRF', desc: 'REST APIs in Python' },
   { imgSrc: postgresql, label: 'PostgreSQL', desc: 'Schema Design & Tuning' },
 
   // Infra, data layer and cloud
@@ -66,18 +66,22 @@ const Skill = () => {
   return (
     <section id='skills' className='section'>
       <div className='container'>
-        <h2 className='headline-2 reveal-up'>Essential Tools I use</h2>
+        <p className='text-sm font-medium uppercase tracking-widest text-sky-500 dark:text-sky-400 mb-2 reveal-up'>
+          Tech stack
+        </p>
+
+        <h2 className='headline-2 reveal-up'>Tools &amp; technologies</h2>
 
         <p className='text-zinc-500 dark:text-zinc-400 mt-3 mb-8 max-w-[55ch] reveal-up'>
-          The technologies I use across frontend, backend, databases,
-          cloud, and integrations.
+          {skillItems.length} tools I work with across the full stack, from
+          frontend and APIs to databases, cloud and third-party integrations.
         </p>
 
         <div className='reveal-up'>
           <Paginated
             perPage={8}
             label='Tools'
-            gridClassName='grid gap-3 grid-cols-1 sm:grid-cols-2 xl:grid-cols-4'
+            gridClassName='grid gap-2 sm:gap-3 grid-cols-2 xl:grid-cols-4'
           >
             {skillItems.map(({ imgSrc, label, desc }) => (
               <SkillCard

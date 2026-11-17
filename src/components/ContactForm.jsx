@@ -54,9 +54,9 @@ const ContactForm = () => {
   return (
     // React resets the fields to their defaultValue after each send, so what
     // the visitor typed comes back if sending fails, and clears if it succeeds.
-    <form action={formAction} className='lg:pl-10 xl:pl-16 mt-10 lg:mt-0'>
-      <div className='grid gap-4 sm:grid-cols-2'>
-        <div className='mb-4'>
+    <form action={formAction} className='lg:pl-10 xl:pl-16 mt-8 lg:mt-0'>
+      <div className='grid gap-3 sm:gap-5 sm:grid-cols-2 mb-4 sm:mb-6'>
+        <div>
           <label htmlFor='name' className='label reveal-up'>
             Name
           </label>
@@ -72,7 +72,7 @@ const ContactForm = () => {
           />
         </div>
 
-        <div className='mb-4'>
+        <div>
           <label htmlFor='email' className='label reveal-up'>
             Email
           </label>
@@ -88,7 +88,7 @@ const ContactForm = () => {
           />
         </div>
 
-        <div className='mb-4 sm:col-span-2'>
+        <div className='sm:col-span-2'>
           <label htmlFor='subject' className='label reveal-up'>
             Subject
           </label>
@@ -103,7 +103,7 @@ const ContactForm = () => {
           />
         </div>
 
-        <div className='mb-4 sm:col-span-2'>
+        <div className='sm:col-span-2'>
           <label htmlFor='message' className='label reveal-up'>
             Message
           </label>
@@ -113,7 +113,7 @@ const ContactForm = () => {
             required
             placeholder='Tell me about the role or project'
             defaultValue={values.message}
-            className='text-field resize-y min-h-32 max-h-80 reveal-up'
+            className='text-field resize-y min-h-24 sm:min-h-32 max-h-80 reveal-up'
           ></textarea>
         </div>
       </div>
@@ -129,7 +129,9 @@ const ContactForm = () => {
       <p
         role='status'
         className={`text-sm mt-3 min-h-5 ${
-          state.status === 'error' ? 'text-amber-300' : 'text-emerald-400'
+          state.status === 'error'
+            ? 'text-amber-700 dark:text-amber-300'
+            : 'text-emerald-700 dark:text-emerald-400'
         }`}
       >
         {state.message}
