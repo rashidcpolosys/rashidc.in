@@ -52,13 +52,15 @@ export function RotatingHeadline() {
                 {[...word].map((char, j) => (
                   <span
                     key={j}
-                    className={`inline-block will-change-transform motion-reduce:!translate-y-0 motion-reduce:!blur-0 ${
+                    // Opacity and transform only: the GPU animates those without
+                    // repainting, so the headline never competes with scrolling.
+                    className={`inline-block motion-reduce:!translate-y-0 ${
                       isIn
-                        ? 'translate-y-0 opacity-100 blur-0 duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]'
+                        ? 'translate-y-0 opacity-100 duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]'
                         : isOut
-                          ? '-translate-y-[60%] opacity-0 blur-[6px] duration-500 ease-[cubic-bezier(0.55,0,1,0.45)]'
-                          : 'translate-y-[60%] opacity-0 blur-[6px] duration-0'
-                    } transition-[opacity,transform,filter]`}
+                          ? '-translate-y-[60%] opacity-0 duration-500 ease-[cubic-bezier(0.55,0,1,0.45)]'
+                          : 'translate-y-[60%] opacity-0 duration-0'
+                    } transition-[opacity,transform]`}
                     style={{
                       transitionDelay: isIn
                         ? `${IN_DELAY_MS + j * IN_STAGGER_MS}ms`

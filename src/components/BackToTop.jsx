@@ -15,6 +15,7 @@ const BackToTop = () => {
 
   useEffect(() => {
     const onScroll = () => {
+      // React skips the re-render when the value hasn't changed.
       setVisible(window.scrollY > 400)
 
       // Fill the ring as the page scrolls; set directly to avoid re-renders.
@@ -70,7 +71,7 @@ const BackToTop = () => {
           strokeLinecap='round'
           strokeDasharray={CIRCUMFERENCE}
           strokeDashoffset={CIRCUMFERENCE}
-          className='stroke-sky-400 transition-[stroke-dashoffset] duration-150'
+          className='stroke-sky-400'
         />
       </svg>
 

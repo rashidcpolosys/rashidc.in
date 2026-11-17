@@ -159,11 +159,6 @@ const Service = () => {
                   <div className='relative shrink-0 flex items-start justify-between sm:mb-5'>
                     {/* Icon tile: raised glass with a gradient icon */}
                     <div className='relative'>
-                      <div
-                        aria-hidden='true'
-                        className='absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500'
-                        style={{ background: 'var(--accent-glow)' }}
-                      />
                       <div className='relative w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl grid place-items-center overflow-hidden bg-gradient-to-b from-white to-zinc-100 dark:from-zinc-800 dark:to-zinc-900 ring-1 ring-inset ring-zinc-900/10 dark:ring-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_6px_16px_-8px_rgba(0,0,0,0.25)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_6px_16px_-8px_rgba(0,0,0,0.7)] transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-rotate-6 group-hover:scale-110 motion-reduce:!transform-none'>
                         <Icon
                           size={22}

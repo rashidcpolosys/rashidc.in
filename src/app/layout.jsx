@@ -67,10 +67,8 @@ export const metadata = {
 }
 
 export const viewport = {
-  themeColor: [
-    { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
-    { media: '(prefers-color-scheme: light)', color: '#fafafa' },
-  ],
+  // The site opens dark everywhere, so the browser bar matches it.
+  themeColor: '#0a0a0a',
 }
 
 export default function RootLayout({ children, modal }) {
@@ -81,10 +79,11 @@ export default function RootLayout({ children, modal }) {
       suppressHydrationWarning
     >
       <head>
-        {/* Theme before first paint: the saved choice, otherwise the device setting (and follow it if it changes). */}
+        {/* Theme before first paint: dark on every device, unless the visitor
+            switched to light with the toggle (saved in localStorage). */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){var d=document.documentElement,m=window.matchMedia('(prefers-color-scheme: dark)');function saved(){try{return localStorage.getItem('theme')}catch(e){return null}}function apply(){var t=saved();d.classList.toggle('dark',t?t==='dark':m.matches)}apply();m.addEventListener('change',function(){if(!saved())apply()})})()`,
+            __html: `(function(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}document.documentElement.classList.toggle('dark',t!=='light')})()`,
           }}
         />
         {/* Without JavaScript the reveal animation can't run, so show everything. */}
