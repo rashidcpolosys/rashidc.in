@@ -82,10 +82,10 @@ export default function RootLayout({ children, modal }) {
       suppressHydrationWarning
     >
       <head>
-        {/* Apply saved theme before first paint to prevent a flash of wrong mode. */}
+        {/* Theme before first paint: the saved choice, otherwise the device setting (and follow it if it changes). */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme');var d=document.documentElement;if(t==='light'){d.classList.remove('dark')}else if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){d.classList.add('dark')}else{d.classList.add('dark')}}catch(e){}})()`,
+            __html: `(function(){var d=document.documentElement,m=window.matchMedia('(prefers-color-scheme: dark)');function saved(){try{return localStorage.getItem('theme')}catch(e){return null}}function apply(){var t=saved();d.classList.toggle('dark',t?t==='dark':m.matches)}apply();m.addEventListener('change',function(){if(!saved())apply()})})()`,
           }}
         />
         {/* Without JavaScript the reveal animation can't run, so show everything. */}
