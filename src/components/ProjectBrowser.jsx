@@ -80,11 +80,11 @@ const ProjectBrowser = ({ cards }) => {
         })}
       </div>
 
-      {/* Tech filter */}
+      {/* Tech filter — hidden on mobile to keep the UI compact */}
       <div
         role='group'
         aria-label='Filter projects by technology'
-        className='flex flex-wrap gap-2 mb-6'
+        className='hidden sm:flex flex-wrap gap-2 mb-6'
       >
         {TECH_FILTERS.map(({ id, label }) => {
           const isActive = id === techFilter
