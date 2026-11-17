@@ -9,10 +9,10 @@ const Ledger = ({ rows, classes = '' }) => (
         key={label}
         className='flex items-baseline gap-3 py-2.5 first:pt-0 last:pb-0'
       >
-        <dt className="flex flex-1 items-baseline gap-3 text-sm md:text-base text-zinc-400 after:content-[''] after:flex-1 after:min-w-6 after:border-b after:border-dotted after:border-zinc-500 after:translate-y-[-0.3em]">
+        <dt className="flex flex-1 items-baseline gap-3 text-sm md:text-base text-zinc-500 dark:text-zinc-400 after:content-[''] after:flex-1 after:min-w-6 after:border-b after:border-dotted after:border-zinc-300 dark:after:border-zinc-500 after:translate-y-[-0.3em]">
           {label}
         </dt>
-        <dd className='text-lg md:text-xl font-semibold text-zinc-50 tabular-nums whitespace-nowrap'>
+        <dd className='text-lg md:text-xl font-semibold text-zinc-900 dark:text-zinc-50 tabular-nums whitespace-nowrap'>
           {value}
         </dd>
       </div>

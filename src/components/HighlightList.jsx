@@ -16,7 +16,7 @@ const HighlightList = ({ items }) => {
         {items.map((item, index) => (
           <li
             key={item}
-            className={`text-sm md:text-base text-zinc-300 gap-2 ${
+            className={`text-sm md:text-base text-zinc-600 dark:text-zinc-300 gap-2 ${
               !expanded && index >= DEFAULT_VISIBLE ? 'hidden' : 'flex'
             }`}
           >

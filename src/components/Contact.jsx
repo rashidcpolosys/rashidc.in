@@ -141,13 +141,13 @@ const socialLinks = [
 const Contact = () => {
   return (
     <section id='contact' className='section'>
-      <div className='container lg:grid lg:grid-cols-2 lg:items-stretch'>
-        <div className='mb-12 lg:mb-0 lg:flex lg:flex-col'>
-          <h2 className='headline-2 lg:max-w-[12ch] reveal-up'>
+      <div className='container lg:grid lg:grid-cols-2 lg:gap-10 lg:items-start'>
+        <div className='mb-10 lg:mb-0'>
+          <h2 className='headline-2 reveal-up'>
             Let&apos;s talk
           </h2>
 
-          <p className='text-zinc-400 mt-3 mb-8 max-w-[50ch] lg:max-w-[40ch] reveal-up'>
+          <p className='text-zinc-500 dark:text-zinc-400 mt-3 mb-8 max-w-[50ch] reveal-up'>
             Hiring a full-stack engineer in Dubai, or need a business system
             built? I&apos;m available immediately &mdash; call or WhatsApp my
             UAE number, or send a message here.
@@ -158,14 +158,14 @@ const Contact = () => {
               const body = (
                 <>
                   <span
-                    className='w-10 h-10 shrink-0 rounded-lg grid place-items-center bg-zinc-800 text-sky-400 ring-1 ring-inset ring-zinc-50/5'
+                    className='w-10 h-10 shrink-0 rounded-lg grid place-items-center bg-zinc-200 dark:bg-zinc-800 text-sky-400 ring-1 ring-inset ring-zinc-900/5 dark:ring-zinc-50/5'
                     aria-hidden='true'
                   >
                     <Icon size={20} />
                   </span>
                   <span className='min-w-0'>
-                    <span className='block text-xs text-zinc-500'>{label}</span>
-                    <span className='block text-zinc-200 break-words transition-colors group-hover:text-sky-300'>
+                    <span className='block text-xs text-zinc-500 dark:text-zinc-400'>{label}</span>
+                    <span className='block text-zinc-800 dark:text-zinc-200 break-all sm:break-words transition-colors group-hover:text-sky-500 dark:group-hover:text-sky-300'>
                       {value}
                     </span>
                   </span>
@@ -179,7 +179,7 @@ const Contact = () => {
                       href={href}
                       target={external ? '_blank' : undefined}
                       rel={external ? 'noopener noreferrer' : undefined}
-                      className='group flex items-center gap-3 w-fit max-w-full rounded-lg pr-2'
+                      className='group flex items-center gap-3 w-full max-w-sm rounded-lg pr-2'
                     >
                       {body}
                     </a>
@@ -191,7 +191,7 @@ const Contact = () => {
             })}
           </ul>
 
-          <div className='flex items-center gap-2 mt-auto'>
+          <div className='flex flex-wrap items-center gap-2'>
             {socialLinks.map(({ href, icon, alt }) => (
               <a
                 key={alt}
@@ -199,10 +199,10 @@ const Contact = () => {
                 target='_blank'
                 rel='noopener noreferrer'
                 aria-label={alt}
-                className={`w-12 h-12 grid place-items-center ring-inset ring-2 ring-zinc-50/5 rounded-lg transition-transform duration-300 ease-in-out hover:scale-125 hover:shadow-2xl active:bg-zinc-50/80 reveal-up ${
+                className={`w-11 h-11 sm:w-12 sm:h-12 grid place-items-center ring-inset ring-2 rounded-lg transition-all duration-200 ease-in-out hover:scale-110 hover:shadow-lg active:scale-95 reveal-up ${
                   alt === 'WhatsApp'
-                    ? 'text-green-800 bg-green-500 animate-pulse motion-reduce:animate-none shadow-lg'
-                    : ''
+                    ? 'text-green-800 bg-green-500 ring-green-400/30 animate-pulse motion-reduce:animate-none shadow-lg hover:bg-green-400'
+                    : 'bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 ring-zinc-900/10 dark:ring-zinc-50/5 hover:bg-zinc-900 hover:text-zinc-50 dark:hover:bg-zinc-50 dark:hover:text-zinc-900 hover:ring-transparent'
                 }`}
               >
                 {icon}

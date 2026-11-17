@@ -19,21 +19,21 @@ const About = () => {
   return (
     <section id='about' className='section'>
       <div className='container'>
-        <div className='bg-zinc-800/50 p-7 rounded-2xl md:p-12 reveal-up'>
-          <h2 className='headline-2 max-w-[20ch] mb-8 md:mb-10'>
+        <div className='bg-zinc-200/80 dark:bg-zinc-800/50 p-5 sm:p-7 rounded-2xl md:p-12 reveal-up'>
+          <h2 className='headline-2 max-w-[20ch] mb-6 md:mb-10'>
             I build the software a business runs on every day.
           </h2>
 
-          <div className='grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-14'>
-            <div className='max-w-[62ch]'>
-              <p className='text-zinc-300 md:text-lg leading-relaxed mb-5'>
+          <div className='grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-14'>
+            <div>
+              <p className='text-zinc-600 dark:text-zinc-300 text-base md:text-lg leading-relaxed mb-5'>
                 I&apos;m Rashid C, a full-stack engineer in Dubai, UAE. Over
                 4 years I&apos;ve taken products from database schema to
                 deployed release: Next.js and React on the front end, Django,
                 NestJS and Node.js on the back end, PostgreSQL underneath.
               </p>
 
-              <p className='text-zinc-400 leading-relaxed mb-8'>
+              <p className='text-zinc-500 dark:text-zinc-400 leading-relaxed mb-8'>
                 Right now I&apos;m the only engineer on NezeX One, a
                 multi-tenant cloud ERP that a UAE business uses daily for sales,
                 purchasing, inventory and VAT invoicing. I care most about the
@@ -47,7 +47,7 @@ const About = () => {
                   href='https://nezexone.com/'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='inline-flex items-center gap-2.5 rounded-lg px-3.5 h-10 text-sm text-zinc-200 bg-zinc-50/5 ring-1 ring-inset ring-zinc-50/10 transition-colors hover:bg-zinc-50/10'
+                  className='inline-flex items-center gap-2.5 rounded-lg px-3.5 h-10 text-sm text-zinc-700 dark:text-zinc-200 bg-zinc-900/5 dark:bg-zinc-50/5 ring-1 ring-inset ring-zinc-900/10 dark:ring-zinc-50/10 transition-colors hover:bg-zinc-900/10 dark:hover:bg-zinc-50/10'
                 >
                   <span className='relative w-2 h-2 rounded-full bg-emerald-400'>
                     <span className='absolute inset-0 rounded-full bg-emerald-400 animate-ping motion-reduce:animate-none'></span>
@@ -55,7 +55,7 @@ const About = () => {
                   See NezeX One live
                   <ArrowUpRight
                     size={18}
-                    className='text-zinc-400'
+                    className='text-zinc-500 dark:text-zinc-400'
                     aria-hidden='true'
                   />
                 </a>
@@ -71,7 +71,7 @@ const About = () => {
 
             <Ledger
               rows={trackRecord}
-              classes='self-start lg:border-l lg:border-zinc-700/60 lg:pl-14'
+              classes='self-start lg:border-l lg:border-zinc-300 dark:lg:border-zinc-700/60 lg:pl-14'
             />
           </div>
         </div>

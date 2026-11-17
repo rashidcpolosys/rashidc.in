@@ -92,7 +92,7 @@ export default async function ProjectPage({ params }) {
 
       <Link
         href='/#work'
-        className='inline-flex items-center gap-2 text-sm text-zinc-400 transition-colors hover:text-zinc-200 mb-8'
+        className='inline-flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400 transition-colors hover:text-zinc-700 dark:hover:text-zinc-200 mb-8'
       >
         <ArrowLeft size={18} aria-hidden='true' />
         All projects
@@ -100,7 +100,7 @@ export default async function ProjectPage({ params }) {
 
       <p className='text-sky-400 mb-3'>{name}</p>
       <h1 className='headline-2 max-w-[24ch] mb-5'>{headline}</h1>
-      <p className='text-zinc-300 md:text-lg leading-relaxed max-w-[65ch] mb-8'>
+      <p className='text-zinc-600 dark:text-zinc-300 md:text-lg leading-relaxed max-w-[65ch] mb-8'>
         {summary}
       </p>
 
@@ -132,7 +132,7 @@ export default async function ProjectPage({ params }) {
           </h2>
           <ul className='space-y-3'>
             {highlights.map((item) => (
-              <li key={item} className='text-zinc-300 flex gap-2'>
+              <li key={item} className='text-zinc-600 dark:text-zinc-300 flex gap-2'>
                 <span
                   className='mt-2 h-1.5 w-1.5 rounded-full bg-sky-400 shrink-0'
                   aria-hidden='true'
@@ -143,12 +143,12 @@ export default async function ProjectPage({ params }) {
           </ul>
         </section>
 
-        <aside className='lg:border-l lg:border-zinc-700/60 lg:pl-14 space-y-8'>
+        <aside className='lg:border-l lg:border-zinc-300 dark:lg:border-zinc-700/60 lg:pl-14 space-y-8'>
           <dl className='space-y-4'>
             {details.map(({ label, value }) => (
               <div key={label}>
-                <dt className='text-xs text-zinc-500 mb-1'>{label}</dt>
-                <dd className='text-zinc-200'>{value}</dd>
+                <dt className='text-xs text-zinc-400 dark:text-zinc-500 mb-1'>{label}</dt>
+                <dd className='text-zinc-700 dark:text-zinc-200'>{value}</dd>
               </div>
             ))}
           </dl>
@@ -161,7 +161,7 @@ export default async function ProjectPage({ params }) {
               {stack.map((item) => (
                 <li
                   key={item}
-                  className='h-6 leading-6 text-xs text-zinc-300 bg-zinc-50/5 px-2.5 rounded-md'
+                  className='h-6 leading-6 text-xs text-zinc-600 dark:text-zinc-300 bg-zinc-900/5 dark:bg-zinc-50/5 px-2.5 rounded-md'
                 >
                   {item}
                 </li>
@@ -173,10 +173,10 @@ export default async function ProjectPage({ params }) {
 
       <Link
         href={`/projects/${next.slug}`}
-        className='group mt-14 flex items-center justify-between gap-4 rounded-2xl p-6 bg-zinc-800/50 transition-colors hover:bg-zinc-800'
+        className='group mt-14 flex items-center justify-between gap-4 rounded-2xl p-6 bg-zinc-200/80 dark:bg-zinc-800/50 transition-colors hover:bg-zinc-200 dark:hover:bg-zinc-800'
       >
         <span>
-          <span className='block text-sm text-zinc-400 mb-1'>Next project</span>
+          <span className='block text-sm text-zinc-500 dark:text-zinc-400 mb-1'>Next project</span>
           <span className='title-1'>{next.caseStudy.name}</span>
         </span>
         <ArrowRight

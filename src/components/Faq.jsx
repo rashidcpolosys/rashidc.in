@@ -45,25 +45,25 @@ const Faq = () => (
     <JsonLd data={faqJsonLd} />
     <div className='container'>
       <h2 className='headline-2 mb-3 reveal-up'>Frequently asked questions</h2>
-      <p className='text-zinc-400 mb-8 max-w-[60ch] reveal-up'>
+      <p className='text-zinc-500 dark:text-zinc-400 mb-8 max-w-[60ch] reveal-up'>
         Quick answers for recruiters and clients.
       </p>
 
-      <div className='space-y-3 max-w-3xl'>
+      <div className='space-y-3 w-full max-w-3xl'>
         {faqs.map(({ q, a }) => (
           <details
             key={q}
-            className='group reveal-up rounded-2xl bg-zinc-800/50 ring-1 ring-inset ring-white/5 open:bg-zinc-800/80'
+            className='group reveal-up rounded-2xl bg-zinc-200/70 dark:bg-zinc-800/50 ring-1 ring-inset ring-zinc-900/5 dark:ring-white/5 open:bg-zinc-200 dark:open:bg-zinc-800/80'
           >
-            <summary className='flex cursor-pointer list-none items-center justify-between gap-4 p-5 text-zinc-100 [&::-webkit-details-marker]:hidden'>
+            <summary className='flex cursor-pointer list-none items-center justify-between gap-4 p-5 text-zinc-900 dark:text-zinc-100 [&::-webkit-details-marker]:hidden'>
               <h3 className='font-medium'>{q}</h3>
               <ChevronDown
                 size={18}
-                className='shrink-0 text-zinc-400 transition-transform group-open:rotate-180'
+                className='shrink-0 text-zinc-400 dark:text-zinc-400 transition-transform group-open:rotate-180'
                 aria-hidden='true'
               />
             </summary>
-            <p className='px-5 pb-5 text-zinc-400 leading-relaxed'>{a}</p>
+            <p className='px-5 pb-5 text-zinc-500 dark:text-zinc-400 leading-relaxed'>{a}</p>
           </details>
         ))}
       </div>

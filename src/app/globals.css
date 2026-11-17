@@ -4,8 +4,17 @@
 
 /* *BASE */
 
+/* Header fade colour: matches the page background in each theme */
+:root {
+  --header-from: #f4f4f5;
+}
+
+.dark {
+  --header-from: #18181b;
+}
+
 body {
-  @apply bg-zinc-900 text-zinc-50;
+  @apply bg-zinc-100 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-50;
 }
 
 /* Links from other pages land like the home page's smooth scroll does: content
@@ -28,34 +37,43 @@ button:focus-visible {
 }
 
 /* TYPOGRAPHY */
-.headeline-1,
+.headline-1,
 .headline-2 {
   @apply max-w-max;
+  background: linear-gradient(90deg, #18181b, #52525b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dark .headline-1,
+.dark .headline-2 {
   background: linear-gradient(90deg, #fafafa, #a1a1aa);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.headeline-1 {
-  @apply text-5xl leading-tight font-semibold lg:text-[55px] lg:leading-[1.15];
+.headline-1 {
+  @apply text-4xl sm:text-5xl leading-tight font-semibold lg:text-[55px] lg:leading-[1.15];
 }
 
 .headline-2 {
-  @apply text-3xl lg:text-4xl lg:leading-tight font-semibold;
+  @apply text-2xl sm:text-3xl lg:text-4xl lg:leading-tight font-semibold;
 }
 
 .title-1 {
-  @apply text-[22px] font-normal;
+  @apply text-lg sm:text-[22px] font-normal;
 }
+
 /* UTILITIES */
 
 .container {
-  @apply px-4 mx-auto lg:px-8 xl:max-w-6xl;
+  @apply px-4 sm:px-5 mx-auto lg:px-8 xl:max-w-6xl;
 }
 
 .img-box {
-  @apply bg-zinc-700 overflow-hidden;
+  @apply bg-zinc-200 dark:bg-zinc-700 overflow-hidden;
 }
 
 .img-cover {
@@ -63,11 +81,11 @@ button:focus-visible {
 }
 
 .section {
-  @apply pt-20 lg:pt-32;
-
+  @apply pt-16 sm:pt-20 lg:pt-32;
 }
-.reveal-up{
-  @apply translate-y-20 opacity-0
+
+.reveal-up {
+  @apply translate-y-20 opacity-0;
 }
 
 /* Must come after .reveal-up, or that rule wins and the content stays hidden. */
@@ -105,23 +123,25 @@ button:focus-visible {
 /* COMPONENTS */
 /* ------------------------------------------------------------------------------ */
 
-/*1 Menu btn */
+/* 1 Menu btn */
 
 .menu-btn {
   @apply w-10 h-10 grid place-items-center
-   bg-[#2f2f32] rounded-xl ring-inset ring-1
-    ring-zinc-50/[0.02] hover:bg-[#3a3a3d]
+    bg-zinc-200 dark:bg-[#2f2f32] rounded-xl ring-inset ring-1
+    ring-zinc-900/5 dark:ring-zinc-50/[0.02] hover:bg-zinc-300 dark:hover:bg-[#3a3a3d]
     transition-[transform,background-color] active:scale-95;
 }
 
 /* 2 Navbar */
 
 .navbar {
-  @apply absolute top-full right-0 min-w-40 p-2 bg-[#2f2f32]/95 rounded-2xl 
-    ring-inset ring-1 ring-zinc-50/5 scale-90 isolate blur-sm opacity-0 invisible 
-    transition-[opacity,transform,filter] 
-    md:static md:flex md:items-center md:mt-0 md:opacity-100 md:blur-0 
-    md:visible md:scale-100;
+  @apply absolute top-full right-0 min-w-40 p-2 rounded-2xl
+    ring-inset ring-1 scale-90 isolate blur-sm opacity-0 invisible
+    transition-[opacity,transform,filter]
+    md:static md:flex md:items-center md:mt-0 md:opacity-100 md:blur-0
+    md:visible md:scale-100
+    bg-white/95 ring-zinc-900/10
+    dark:bg-[#2f2f32]/95 dark:ring-zinc-50/5;
 }
 
 .navbar.active {
@@ -129,35 +149,37 @@ button:focus-visible {
 }
 
 .nav-link {
-  @apply grid items-center h-9 px-4 text-sm font-medium 
-  tracking-wide text-zinc-50/50 hover:text-zinc-50
-  transition-colors;
+  @apply grid items-center h-9 px-4 text-sm font-medium
+    tracking-wide transition-colors
+    text-zinc-900/50 hover:text-zinc-900
+    dark:text-zinc-50/50 dark:hover:text-zinc-50;
 }
 
 .nav-link.active {
-  @apply text-zinc-900 duration-300;
+  @apply text-zinc-50 dark:text-zinc-900 duration-300;
 }
 
 .navbar .active-box {
-  @apply absolute top-2 left-2 right-2 h-9 bg-zinc-50 rounded-lg -z-10 opacity-0
-  transition-[top,left,width] duration-300 ease-out;
+  @apply absolute top-2 left-2 right-2 h-9 bg-zinc-900 dark:bg-zinc-50 rounded-lg -z-10 opacity-0
+    transition-[top,left,width] duration-300 ease-out;
 }
 
 /* Before JavaScript has placed the sliding box, the active link draws its own highlight */
 .navbar:not([data-ready]) .nav-link.active {
-  @apply bg-zinc-50 rounded-lg;
+  @apply bg-zinc-900 dark:bg-zinc-50 text-zinc-50 dark:text-zinc-900 rounded-lg;
 }
 
 /* 3 Button */
 
 .btn {
   @apply max-w-max h-9 flex items-center gap-2 px-4
-    rounded-xl font-medium text-sm ring-1 ring-zinc-50/5
+    rounded-xl font-medium text-sm ring-1
+    ring-zinc-900/10 dark:ring-zinc-50/5
     ring-inset transition-[background-color];
 }
 
 .btn-secondary {
-  @apply bg-zinc-50 text-zinc-900 active:bg-zinc-50/80;
+  @apply bg-zinc-900 text-zinc-50 dark:bg-zinc-50 dark:text-zinc-900 active:opacity-80;
 }
 
 .btn svg {
@@ -173,20 +195,27 @@ button:focus-visible {
 }
 
 .btn-outline {
-  @apply h-11 bg-zinc-800 hover:bg-zinc-700 active:bg-zinc-800;
+  @apply h-11 bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700
+    text-zinc-900 dark:text-zinc-50
+    active:bg-zinc-200 dark:active:bg-zinc-800;
 }
 
 /* Text field */
 
 .label {
-  @apply block text-zinc-200 text-sm font-normal mb-2;
+  @apply block text-sm font-normal mb-2
+    text-zinc-700 dark:text-zinc-200;
 }
 
 .text-field {
-  @apply block outline-none w-full px-3 py-3 text-sm bg-zinc-800 rounded-xl ring-1 ring-inset ring-transparent transition-shadow hover:ring-zinc-50/5 focus:ring-sky-400 focus:ring-2;
+  @apply block outline-none w-full px-3 py-3 text-sm rounded-xl ring-1 ring-inset
+    ring-transparent transition-shadow
+    hover:ring-zinc-900/10 dark:hover:ring-zinc-50/5
+    focus:ring-sky-400 focus:ring-2
+    bg-zinc-200 dark:bg-zinc-800
+    text-zinc-900 dark:text-zinc-50;
 }
 
 .text-field::placeholder {
-  @apply text-zinc-400;
+  @apply text-zinc-500 dark:text-zinc-400;
 }
-

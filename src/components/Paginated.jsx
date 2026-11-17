@@ -67,7 +67,7 @@ const Paginated = ({ children, perPage, gridClassName, label }) => {
   }
 
   const buttonClass =
-    'h-9 px-3 rounded-lg text-sm bg-zinc-800 hover:bg-zinc-700 active:scale-95 touch-manipulation disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100 transition-[background-color,transform]'
+    'h-9 px-3 rounded-lg text-sm bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 active:scale-95 touch-manipulation disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100 transition-[background-color,transform]'
 
   return (
     <>
@@ -111,7 +111,7 @@ const Paginated = ({ children, perPage, gridClassName, label }) => {
               className={`h-9 min-w-9 px-3 rounded-lg text-sm active:scale-95 touch-manipulation transition-[background-color,transform] ${
                 isActive
                   ? 'bg-sky-400 text-zinc-950'
-                  : 'bg-zinc-800 hover:bg-zinc-700 text-zinc-100'
+                  : 'bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 text-zinc-900 dark:text-zinc-100'
               }`}
             >
               {number}

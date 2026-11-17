@@ -12,6 +12,7 @@ import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import JsonLd from '@/components/JsonLd'
 import SmoothScroll from '@/components/SmoothScroll'
+import BackToTop from '@/components/BackToTop'
 import {
   SITE_DESCRIPTION,
   SITE_NAME,
@@ -66,16 +67,26 @@ export const metadata = {
 }
 
 export const viewport = {
-  themeColor: '#0a0a0a',
+  themeColor: [
+    { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
+    { media: '(prefers-color-scheme: light)', color: '#fafafa' },
+  ],
 }
 
 export default function RootLayout({ children }) {
   return (
     <html
       lang='en'
-      className={`${inter.variable} scrollbar-thin scrollbar-track-zinc-800 scrollbar-thumb-zinc-500`}
+      className={`dark ${inter.variable} scrollbar-thin scrollbar-track-zinc-800 scrollbar-thumb-zinc-500`}
+      suppressHydrationWarning
     >
       <head>
+        {/* Apply saved theme before first paint to prevent a flash of wrong mode. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');var d=document.documentElement;if(t==='light'){d.classList.remove('dark')}else if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){d.classList.add('dark')}else{d.classList.add('dark')}}catch(e){}})()`,
+          }}
+        />
         {/* Without JavaScript the reveal animation can't run, so show everything. */}
         <noscript>
           <style
@@ -92,6 +103,7 @@ export default function RootLayout({ children }) {
           {children}
           <Footer />
           <FloatingWhatsApp />
+          <BackToTop />
         </SmoothScroll>
       </body>
     </html>

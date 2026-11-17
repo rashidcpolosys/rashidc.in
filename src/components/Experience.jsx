@@ -93,13 +93,13 @@ const Experience = () => {
       <div className='container'>
         <h2 className='headline-2 mb-3 reveal-up'>Work experience</h2>
 
-        <p className='text-zinc-400 mb-8 max-w-[60ch] reveal-up'>
+        <p className='text-zinc-500 dark:text-zinc-400 mb-8 max-w-[60ch] reveal-up'>
           Four years of shipping production software &mdash; most recently
           ERP and e-commerce systems running live in the UAE.
         </p>
 
         <div className='relative'>
-          <div className='absolute left-[7px] top-2 bottom-2 w-px bg-zinc-700'></div>
+          <div className='absolute left-[7px] top-2 bottom-2 w-px bg-zinc-300 dark:bg-zinc-700'></div>
 
           <div className='space-y-10'>
             {experiences.map(({ role, company, duration, location, highlights }) => (
@@ -107,18 +107,18 @@ const Experience = () => {
                 key={`${company}-${role}`}
                 className='reveal-up relative pl-8 md:pl-10'
               >
-                <span className='absolute left-0 top-1.5 w-3.5 h-3.5 rounded-full bg-sky-400 ring-4 ring-zinc-900'></span>
+                <span className='absolute left-0 top-1.5 w-3.5 h-3.5 rounded-full bg-sky-400 ring-4 ring-zinc-100 dark:ring-zinc-900'></span>
 
-                <div className='flex flex-wrap items-start justify-between gap-3'>
+                <div className='flex flex-col sm:flex-row sm:flex-wrap sm:items-start sm:justify-between gap-2 sm:gap-3'>
                   <div>
-                    <h3 className='title-1'>{role}</h3>
-                    <p className='text-zinc-300 mt-1'>
+                    <h3 className='title-1 text-lg sm:text-[22px]'>{role}</h3>
+                    <p className='text-zinc-600 dark:text-zinc-300 mt-1 text-sm sm:text-base'>
                       {company}{' '}
-                      <span className='text-zinc-500'>- {location}</span>
+                      <span className='text-zinc-400 dark:text-zinc-500'>- {location}</span>
                     </p>
                   </div>
 
-                  <p className='h-8 text-sm text-zinc-200 bg-zinc-50/10 grid items-center px-3 rounded-lg'>
+                  <p className='w-fit h-8 text-sm text-zinc-700 dark:text-zinc-200 bg-zinc-900/10 dark:bg-zinc-50/10 grid items-center px-3 rounded-lg shrink-0'>
                     {duration}
                   </p>
                 </div>
@@ -129,18 +129,18 @@ const Experience = () => {
           </div>
         </div>
 
-        <div className='mt-12 bg-zinc-800/50 p-7 rounded-2xl md:p-10 reveal-up'>
+        <div className='mt-12 bg-zinc-200/80 dark:bg-zinc-800/50 p-7 rounded-2xl md:p-10 reveal-up'>
           <h3 className='title-1 mb-5'>Education &amp; certifications</h3>
 
           <div className='grid gap-6 md:grid-cols-2'>
             <div>
-              <p className='text-zinc-200'>{education.degree}</p>
-              <p className='text-sm text-zinc-400 mt-1'>
+              <p className='text-zinc-700 dark:text-zinc-200'>{education.degree}</p>
+              <p className='text-sm text-zinc-500 dark:text-zinc-400 mt-1'>
                 {education.school} &middot; {education.duration}
               </p>
 
-              <p className='text-sm text-zinc-400 mt-4'>
-                <span className='text-zinc-300'>Languages:</span> {languages}
+              <p className='text-sm text-zinc-500 dark:text-zinc-400 mt-4'>
+                <span className='text-zinc-600 dark:text-zinc-300'>Languages:</span> {languages}
               </p>
             </div>
 
@@ -148,7 +148,7 @@ const Experience = () => {
               {certifications.map((item) => (
                 <li
                   key={item}
-                  className='text-sm md:text-base text-zinc-300 flex gap-2'
+                  className='text-sm md:text-base text-zinc-600 dark:text-zinc-300 flex gap-2'
                 >
                   <span
                     className='mt-2 h-1.5 w-1.5 rounded-full bg-sky-400 shrink-0'

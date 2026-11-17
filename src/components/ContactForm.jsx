@@ -54,8 +54,8 @@ const ContactForm = () => {
   return (
     // React resets the fields to their defaultValue after each send, so what
     // the visitor typed comes back if sending fails, and clears if it succeeds.
-    <form action={formAction} className='xl:pl-10 2xl:pl-20'>
-      <div className='md:grid md:items-center md:grid-cols-2 md:gap-2'>
+    <form action={formAction} className='lg:pl-10 xl:pl-16 mt-10 lg:mt-0'>
+      <div className='grid gap-4 sm:grid-cols-2'>
         <div className='mb-4'>
           <label htmlFor='name' className='label reveal-up'>
             Name
@@ -88,7 +88,7 @@ const ContactForm = () => {
           />
         </div>
 
-        <div className='mb-4 md:col-span-2'>
+        <div className='mb-4 sm:col-span-2'>
           <label htmlFor='subject' className='label reveal-up'>
             Subject
           </label>
@@ -103,7 +103,7 @@ const ContactForm = () => {
           />
         </div>
 
-        <div className='mb-4 md:col-span-2'>
+        <div className='mb-4 sm:col-span-2'>
           <label htmlFor='message' className='label reveal-up'>
             Message
           </label>

@@ -68,7 +68,7 @@ const Skill = () => {
       <div className='container'>
         <h2 className='headline-2 reveal-up'>Essential Tools I use</h2>
 
-        <p className='text-zinc-400 mt-3 mb-8 max-w-[55ch] reveal-up'>
+        <p className='text-zinc-500 dark:text-zinc-400 mt-3 mb-8 max-w-[55ch] reveal-up'>
           The technologies I use across frontend, backend, databases,
           cloud, and integrations.
         </p>
@@ -77,7 +77,7 @@ const Skill = () => {
           <Paginated
             perPage={8}
             label='Tools'
-            gridClassName='grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4'
+            gridClassName='grid gap-3 grid-cols-1 sm:grid-cols-2 xl:grid-cols-4'
           >
             {skillItems.map(({ imgSrc, label, desc }) => (
               <SkillCard

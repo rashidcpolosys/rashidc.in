@@ -30,7 +30,7 @@ const ProjectCard = ({ project, index = 0 }) => {
     >
       <figure className='img-box relative aspect-video rounded-lg mb-4'>
         {region && (
-          <span className='absolute top-2 left-2 z-10 h-6 leading-6 px-2 rounded-md text-xs font-medium bg-zinc-900/85 text-zinc-100 ring-1 ring-inset ring-white/10'>
+          <span className='absolute top-2 left-2 z-10 h-6 leading-6 px-2 rounded-md text-xs font-medium bg-white/80 dark:bg-zinc-900/85 text-zinc-700 dark:text-zinc-100 ring-1 ring-inset ring-zinc-900/10 dark:ring-white/10'>
             {region}
           </span>
         )}
@@ -57,14 +57,14 @@ const ProjectCard = ({ project, index = 0 }) => {
               <span
                 key={label}
                 title={label}
-                className='h-6 leading-6 text-xs text-zinc-400 bg-zinc-50/5 block max-w-full truncate px-2.5 rounded-md'
+                className='h-6 leading-6 text-xs text-zinc-500 dark:text-zinc-400 bg-zinc-900/5 dark:bg-zinc-50/5 block max-w-full truncate px-2.5 rounded-md'
               >
                 {label}
               </span>
             ))}
 
             {hiddenCount > 0 && (
-              <span className='h-6 text-xs text-zinc-500 bg-zinc-50/5 grid items-center px-2.5 rounded-md'>
+              <span className='h-6 text-xs text-zinc-400 dark:text-zinc-500 bg-zinc-900/5 dark:bg-zinc-50/5 grid items-center px-2.5 rounded-md'>
                 +{hiddenCount}
               </span>
             )}
@@ -72,7 +72,7 @@ const ProjectCard = ({ project, index = 0 }) => {
         </div>
 
         {!inProgress && (
-          <div className='hidden sm:grid w-11 h-11 rounded-lg place-items-center bg-sky-400 text-zinc-950 shrink-0 self-start'>
+          <div className='w-11 h-11 rounded-lg place-items-center bg-sky-400 text-zinc-950 shrink-0 self-start grid'>
             <Arrow aria-hidden='true' />
           </div>
         )}

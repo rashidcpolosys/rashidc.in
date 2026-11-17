@@ -3,67 +3,46 @@
  * @license Apache-2.0
  */
 
-import i1 from '@/images/people-.jpg'
-import i2 from '@/images/ava.jpg'
-import i3 from '@/images/people-3.jpg'
-import i4 from '@/images/people-4.jpg'
-import i5 from '@/images/people-5.jpg'
-import i6 from '@/images/people-6.png'
+import azcOwner from '@/images/review-azc-owner.jpg'
+import muneer from '@/images/review-muneer-alfath.jpg'
+import samad from '@/images/review-samad-keralabakery.jpg'
 
 import ReviewCard from './ReviewCard'
-import ScrubSlide from './ScrubSlide'
 
+/**
+ * Only real words from real people. Client quotes below were approved by
+ * the person named. Don't edit a quote without asking them again.
+ */
 const reviews = [
   {
     content:
-      'Exceptional web development! Delivered a seamless, responsive site with clean code and great UX.',
-    name: 'Rashid C',
-    imgSrc: i1,
-    company: 'PixelForge',
+      'Rashid built and runs our NezeX ERP, our e-commerce store and the NIBX website for our US partner. He handles development, deployment and support on his own, and he delivers what we ask for.',
+    name: 'Nibal Muidu',
+    imgSrc: azcOwner,
+    company: 'AZC Electronics Trading LLC & NIBX L.L.C.',
   },
   {
     content:
-      'Impressive work! Fast loading times, intuitive design, and flawless backend integration. Highly recommend.',
-    name: 'Rayhan',
-    imgSrc: i2,
-    company: 'Brototype',
+      'Rashid built our bilingual website and the system our staff use to manage client work. He understood how an accounting firm works and was easy to work with.',
+    name: 'Muneer',
+    imgSrc: muneer,
+    company: 'Al Fath Accounts & Tax Solutions, Abu Dhabi',
   },
   {
     content:
-      'Outstanding developer! Built a robust site with perfect functionality. Efficient and detail-oriented.',
-    name: 'Gopika G Nath',
-    imgSrc: i3,
-    company: 'Doctosmart',
-  },
-  {
-    content:
-      'Creative and skilled! Produced a modern, user-friendly site that exceeded expectations. Great communication.',
-    name: 'Reema Midhun',
-    imgSrc: i4,
-    company: 'Doctosmart',
-  },
-  {
-    content:
-      'Professional work! Delivered on time, with a polished design and smooth user experience. Top-notch developer.',
-    name: 'Nasif',
-    imgSrc: i5,
-    company: 'Careersteersman',
-  },
-  {
-    content:
-      'Excellent project execution! High-quality code, responsive design, and exceptional problem-solving skills.',
-    name: 'Sidharth',
-    imgSrc: i6,
-    company: 'Doctosmart',
+      'Rashid is building KeralaBooks, a sales and purchase ledger for our two bakery shops, designed to use on a tablet and phone. He listens to what we need and keeps improving it.',
+    name: 'Samad',
+    imgSrc: samad,
+    company: 'Kerala Bakery',
   },
 ]
 
 const Review = () => {
   return (
-    <section id='reviews' className='section overflow-hidden'>
+    <section id='reviews' className='section'>
       <div className='container'>
-        <h2 className='headline-2 mb-8 reveal-up'>What our customers say</h2>
-        <ScrubSlide>
+        <h2 className='headline-2 mb-8 reveal-up'>What clients say</h2>
+        <div className='grid gap-3 md:grid-cols-2 lg:grid-cols-3'>
           {reviews.map(({ content, name, imgSrc, company }) => (
             <ReviewCard
               key={name}
@@ -73,7 +52,7 @@ const Review = () => {
               company={company}
             />
           ))}
-        </ScrubSlide>
+        </div>
       </div>
     </section>
   )

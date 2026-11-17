@@ -94,7 +94,7 @@ const Service = () => {
       <div className='container'>
         <h2 className='headline-2 mb-3 reveal-up'>My Services</h2>
 
-        <p className='text-zinc-400 mt-3 mb-8 max-w-[60ch] reveal-up'>
+        <p className='text-zinc-500 dark:text-zinc-400 mt-3 mb-8 max-w-[60ch] reveal-up'>
           High-impact services focused on building secure, scalable, and
           business-ready digital products.
         </p>
@@ -103,7 +103,7 @@ const Service = () => {
           <Paginated
             perPage={6}
             label='Services'
-            gridClassName='grid gap-3 md:grid-cols-2 lg:grid-cols-3'
+            gridClassName='grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
           >
             {services.map(({ icon: Icon, title, desc }, index) => {
               const style = iconStyles[index % iconStyles.length]
@@ -112,7 +112,7 @@ const Service = () => {
                 <article
                   key={title}
                   style={{ '--card-grad-from': style.gradFrom, '--card-grad-to': style.gradTo }}
-                  className='glass-card group relative p-4 rounded-2xl bg-white/[0.03] hover:bg-white/[0.05] ring-1 ring-inset ring-white/10 transition-[background-color,transform] hover:-translate-y-0.5'
+                  className='glass-card group relative p-4 rounded-2xl bg-white/[0.03] dark:bg-white/[0.03] hover:bg-black/[0.03] dark:hover:bg-white/[0.05] ring-1 ring-inset ring-zinc-900/10 dark:ring-white/10 transition-[background-color,transform] hover:-translate-y-0.5'
                 >
                   <div
                     className={`absolute -top-6 -right-4 w-20 h-20 rounded-full blur-2xl bg-gradient-to-br ${style.halo} pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
@@ -123,7 +123,7 @@ const Service = () => {
                   </div>
 
                   <h3 className='title-1 mb-2'>{title}</h3>
-                  <p className='text-zinc-400 text-sm'>{desc}</p>
+                  <p className='text-zinc-500 dark:text-zinc-400 text-sm'>{desc}</p>
                 </article>
               )
             })}

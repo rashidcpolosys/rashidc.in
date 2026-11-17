@@ -5,7 +5,7 @@ const STAR_COUNT = 5
 
 const ReviewCard = ({ content, name, imgSrc, company }) => {
   return (
-    <div className='bg-zinc-800 p-5 rounded-xl min-w-[320px] flex flex-col lg:min-w-[420px]'>
+    <div className='bg-zinc-200 dark:bg-zinc-800 p-4 sm:p-5 rounded-xl h-full flex flex-col'>
       <div className='flex items-center gap-1 mb-3' role='img' aria-label='5 out of 5 stars'>
         {Array.from({ length: STAR_COUNT }, (_, index) => (
           <Star
@@ -17,7 +17,7 @@ const ReviewCard = ({ content, name, imgSrc, company }) => {
         ))}
       </div>
 
-      <p className='text-zinc-400 mb-8'>{content}</p>
+      <p className='text-zinc-500 dark:text-zinc-400 mb-8'>{content}</p>
 
       <div className='flex items-center gap-2 mt-auto'>
         <figure className='w-12 h-12 rounded-lg overflow-hidden shrink-0'>
@@ -31,7 +31,7 @@ const ReviewCard = ({ content, name, imgSrc, company }) => {
 
         <div>
           <p>{name}</p>
-          <p className='text-xs text-zinc-400 tracking-wider'>{company}</p>
+          <p className='text-xs text-zinc-500 dark:text-zinc-400 tracking-wider'>{company}</p>
         </div>
       </div>
     </div>
